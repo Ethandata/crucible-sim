@@ -3,60 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RapidLanding - Custom Landing Pages in 72 Hours</title>
+    <title>AI Form Builder Pro - Create Professional Forms in Minutes</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; text-align: center; }
-        h1 { font-size: 3rem; margin-bottom: 20px; color: #2c3e50; font-weight: 700; }
-        .subheadline { font-size: 1.5rem; color: #7f8c8d; margin-bottom: 40px; }
-        .benefits { text-align: left; max-width: 600px; margin: 40px auto; }
-        .benefit { margin: 20px 0; display: flex; align-items: flex-start; }
-        .benefit strong { color: #e74c3c; min-width: 150px; }
-        .cta-section { background: #f8f9fa; padding: 40px; margin: 40px 0; border-radius: 10px; }
-        .cta-button { 
-            background: #e74c3c; 
-            color: white; 
-            padding: 20px 40px; 
-            font-size: 1.5rem; 
-            text-decoration: none; 
-            border-radius: 5px; 
-            display: inline-block; 
-            margin: 20px 0;
-            font-weight: bold;
-        }
-        .cta-button:hover { background: #c0392b; }
-        .guarantee { color: #7f8c8d; margin-top: 20px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #4f46e5; }
+        .cta-btn { background: #4f46e5; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; transition: background 0.3s; }
+        .cta-btn:hover { background: #3730a3; }
+        
+        /* Hero Section */
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 120px 0 80px; text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; font-weight: 700; }
+        .hero p { font-size: 1.25rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .hero .cta-btn { font-size: 1.1rem; padding: 1rem 2rem; margin: 0 0.5rem; }
+        .hero .secondary-btn { background: transparent; border: 2px solid white; }
+        
+        /* Features */
+        .features { padding: 80px 0; background: #f8fafc; }
+        .features h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .feature { background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .feature h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #4f46e5; }
+        
+        /* Pricing */
+        .pricing { padding: 80px 0; text-align: center; }
+        .pricing h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .pricing-card { max-width: 400px; margin: 2rem auto; background: white; border-radius: 1rem; box-shadow: 0 8px 30px rgba(0,0,0,0.1); overflow: hidden; }
+        .pricing-header { background: #4f46e5; color: white; padding: 2rem; }
+        .price { font-size: 3rem; font-weight: bold; }
+        .pricing-body { padding: 2rem; }
+        .feature-list { list-style: none; margin: 1.5rem 0; }
+        .feature-list li { padding: 0.5rem 0; color: #666; }
+        .feature-list li:before { content: "✓"; color: #10b981; font-weight: bold; margin-right: 0.5rem; }
+        .buy-now { background: #10b981; color: white; padding: 1rem 2rem; border: none; border-radius: 0.5rem; font-size: 1.1rem; font-weight: 600; cursor: pointer; width: 100%; }
+        .buy-now:hover { background: #059669; }
+        
+        /* Footer */
+        footer { background: #1f2937; color: white; text-align: center; padding: 2rem 0; }
+        
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .subheadline { font-size: 1.2rem; }
-            .container { padding: 15px; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .hero .cta-btn { display: block; margin: 0.5rem 0; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Custom landing pages built in 72 hours for businesses that need leads NOW</h1>
-        
-        <p class="subheadline">Stop losing potential customers to slow designers and agencies that take weeks. Your landing page goes live in 3 days, guaranteed.</p>
-        
-        <div class="benefits">
-            <div class="benefit">
-                <strong>Live in 72 hours</strong> - Your landing page goes from concept to converting customers in just 3 days
-            </div>
-            <div class="benefit">
-                <strong>Mobile-first design</strong> - 60%+ of your traffic will convert properly on phones and tablets
-            </div>
-            <div class="benefit">
-                <strong>Conversion optimized</strong> - Built with proven psychology and A/B tested elements that turn visitors into buyers
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">RapidLanding</div>
+                <a href="#pricing" class="cta-btn">Get Started - $49</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Create Professional Forms in Minutes</h1>
+            <p>Stop wrestling with complex form builders. Our AI creates beautiful, functional forms that convert visitors into customers.</p>
+            <a href="https://buy.stripe.com/00w5kDdao6tdc4gaiRdEs01" class="cta-btn">Start Building - $49</a>
+            <a href="#features" class="cta-btn secondary-btn">See Features</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why Choose AI Form Builder Pro?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <h3>🚀 Lightning Fast Setup</h3>
+                    <p>Describe your form in plain English. Our AI builds it in seconds, not hours. No coding required.</p>
+                </div>
+                <div class="feature">
+                    <h3>💰 Higher Conversions</h3>
+                    <p>Forms optimized for conversions with smart field ordering, progress indicators, and mobile-first design.</p>
+                </div>
+                <div class="feature">
+                    <h3>🎨 Professional Design</h3>
+                    <p>Beautiful, responsive forms that match your brand. Customize colors, fonts, and layout with one click.</p>
+                </div>
+                <div class="feature">
+                    <h3>📊 Built-in Analytics</h3>
+                    <p>Track form performance, completion rates, and drop-off points. Optimize for maximum results.</p>
+                </div>
+                <div class="feature">
+                    <h3>⚡ Instant Deployment</h3>
+                    <p>Embed anywhere with a simple code snippet. Works with WordPress, Shopify, custom sites, and more.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔒 Enterprise Security</h3>
+                    <p>GDPR compliant, SSL encrypted, with spam protection and data validation built-in.</p>
+                </div>
             </div>
         </div>
-        
-        <div class="cta-section">
-            <h2>Get Your Landing Page - $500</h2>
-            <a href="https://buy.stripe.com/6oU28rfiw9Fp4BO2QpdEs00" class="cta-button">ORDER NOW - $500</a>
-            <p class="guarantee">No contracts. No monthly fees. One price, delivered in 72 hours.</p>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Simple, One-Time Pricing</h2>
+            <p>No monthly fees. No hidden costs. Pay once, use forever.</p>
+            
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>AI Form Builder Pro</h3>
+                    <div class="price">$49</div>
+                    <p>One-time payment</p>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>Unlimited forms</li>
+                        <li>AI-powered form generation</li>
+                        <li>Professional templates</li>
+                        <li>Advanced analytics</li>
+                        <li>Mobile responsive design</li>
+                        <li>Spam protection</li>
+                        <li>Email notifications</li>
+                        <li>CSV/Excel export</li>
+                        <li>Custom branding</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/00w5kDdao6tdc4gaiRdEs01" class="buy-now">Buy Now - $49</a>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">30-day money-back guarantee</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 RapidLanding. Built for businesses that move fast.</p>
+        </div>
+    </footer>
 </body>
 </html>
