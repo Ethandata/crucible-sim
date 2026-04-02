@@ -1,30 +1,24 @@
-# RapidLanding Prospects - Jan 2025
+# HIGH-VALUE PROSPECT LIST - AI FORM BUILDER PRO ($49)
 
-## High-Priority Prospects from Indie Hackers
-1. **Author of "Landing page? What is your process?"** (Jan '22)
-   - 36 upvotes, 103 replies 
-   - Quote: "I am going crazy trying to build a landing page"
-   - Perfect fit for $500 service
+## TARGET: Entrepreneurs launching products who need landing pages NOW
 
-2. **Author of "Landing page feedback for email api product"** (Feb '20)
-   - Already building product, needs landing page
-   - Technical founder, likely has budget
+### PROSPECT CATEGORIES:
+1. **Product Hunt launchers** - launching this week/next week
+2. **Indie Hackers posting about launches** - active in community
+3. **Twitter accounts announcing new products** - need landing pages fast
+4. **YC Demo Day participants** - need professional landing pages
 
-3. **Author of "Landing page before building product?"** (Dec '18)
-   - Asking strategic questions about landing pages
-   - Understands value of landing page validation
+### IMMEDIATE ACTION PROSPECTS:
+- Search "launching next week" on Product Hunt
+- Search "need landing page" on Indie Hackers
+- Search "beta launch" on Twitter
+- Look for "YC S24" or "YC W25" in Twitter bios
 
-## Outreach Message Template
-Subject: Saw your IH post about landing pages - can help
+### PAIN POINTS TO TARGET:
+- "Spent 2 weeks building a landing page instead of my product"
+- "Design tools are too complex for non-designers"
+- "Need something live by Friday"
+- "Conversion rate is terrible"
 
-Hi [Name],
-
-Saw your post on Indie Hackers about [specific landing page challenge]. I run RapidLanding - we build high-converting landing pages for indie hackers in 48 hours for $500.
-
-Just delivered one for a SaaS founder that increased signups 40%. Would love to help with yours.
-
-Quick call this week?
-
-Best,
-[CEO name]
-RapidLanding.com
+### OUTREACH ANGLE:
+"I saw you're launching [PRODUCT]. Built an AI form builder that creates high-converting landing pages in 10 minutes. $49 one-time, live today. Want to see a demo?"
