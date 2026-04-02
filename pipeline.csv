@@ -1,0 +1,51 @@
+id,company,website,size_est,description,ai_agent_signal,buyer_title,buyer_name,buyer_linkedin,status,source,notes
+1,LangChain,https://langchain.com,50-100,Builds LangChain/LangGraph frameworks for AI agents,Core LangGraph platform company,CEO/Head of Product,Harrison Chase,,prospect,domain_knowledge,Builds the LangGraph framework itself; huge signal
+2,CrewAI,https://crewai.com,10-50,Multi-agent orchestration framework,Open-source multi-agent framework,CEO,João Moura,,prospect,domain_knowledge,Popular agent framework; fast-growing
+3,Cohere,https://cohere.com,200-500,Enterprise LLM platform,Enterprise LLM + agent workflows,VP Engineering / Head of AI,,,prospect,domain_knowledge,Enterprise focus; agent tooling
+4,Dust,https://dust.tt,10-50,AI agent platform for enterprise teams,Agent deployment platform,CEO/CTO,Gabriel Hubert,,prospect,domain_knowledge,Agent platform for enterprise
+5,Fixie.ai,https://fixie.ai,10-50,AI agent infrastructure,Agent infrastructure company,CTO,,,prospect,domain_knowledge,Agent infra focus
+6,AutoGPT / Significant Gravitas,https://agpt.co,10-50,Autonomous AI agent platform,AutoGPT open-source pioneer,CEO,Toran Bruce Richards,,prospect,domain_knowledge,Early autonomous agent company
+7,Cognosys,https://cognosys.ai,10-50,AI agent platform,Web-based AI agent platform,CEO,Sully Omarr,,prospect,domain_knowledge,Agent platform startup
+8,Adept AI,https://adept.ai,50-200,AI agents for enterprise workflows,Enterprise workflow automation agents,VP Engineering / Head of AI,,,prospect,domain_knowledge,Well-funded enterprise agent company
+9,Imbue,https://imbue.com,50-100,AI agents with reasoning,Research-focused agent company,Head of Engineering,,,prospect,domain_knowledge,Reasoning-focused agents
+10,MultiOn,https://multion.ai,10-50,Personal AI agent (web automation),Browser-based AI agents,CEO,Div Garg,,prospect,domain_knowledge,AI agent for web tasks
+11,Beam AI,https://beam.ai,10-50,Agentic process automation,Agentic RPA platform,CEO,,,prospect,domain_knowledge,Enterprise agent automation
+12,Relevance AI,https://relevanceai.com,50-100,AI agent workforce platform,No-code AI agent builder for enterprise,Head of Sales / VP Eng,,,prospect,domain_knowledge,Enterprise agent workforce
+13,Lindy AI,https://lindy.ai,10-50,AI employee/agent platform,AI agent as employee concept,CEO,Flo Crivello,,prospect,domain_knowledge,AI agent employee platform
+14,Taskade,https://taskade.com,50-100,AI-powered project management with agents,Embedded AI agents in productivity,Head of Product,,,prospect,domain_knowledge,Agent-powered productivity
+15,AgentOps,https://agentops.ai,10-50,Observability for AI agents,Agent monitoring/observability,CEO,,,prospect,domain_knowledge,Direct overlap — agent observability
+16,Vellum AI,https://vellum.ai,10-50,LLM development platform,Prompt/workflow management for LLM apps,CTO / Head of AI,,,prospect,domain_knowledge,LLM ops tooling
+17,Bardeen,https://bardeen.ai,50-100,AI automation platform,AI-powered workflow automation,Head of AI / VP Eng,,,prospect,domain_knowledge,Automation with AI agents
+18,Zapier (AI division),https://zapier.com,500+,Workflow automation + AI,Deploying AI agents at scale,Head of AI,,,prospect,domain_knowledge,Large co deploying agents at scale
+19,Make (Integromat),https://make.com,200-500,Workflow automation,AI agent integrations,Head of Product,,,prospect,domain_knowledge,Automation platform adding agents
+20,Voiceflow,https://voiceflow.com,100-200,Conversational AI agent builder,Agent builder platform for enterprises,VP Engineering,,,prospect,domain_knowledge,Enterprise conversational agents
+21,Botpress,https://botpress.com,100-200,Open-source AI agent platform,LLM-powered chatbot/agent platform,CTO / Head of AI,,,prospect,domain_knowledge,Large open-source agent community
+22,Moveworks,https://moveworks.com,200-500,Enterprise AI assistant,Enterprise IT/HR AI agents,VP Engineering / Head of AI,,,prospect,domain_knowledge,Enterprise agent deployment
+23,Leena AI,https://leena.ai,100-200,Enterprise AI agents for HR/IT,HR/IT workflow agents,CTO,,,prospect,domain_knowledge,Enterprise agent workflows
+24,Aisera,https://aisera.com,200-500,Enterprise AI service management,AI agents for IT/HR service desk,Head of AI / VP Eng,,,prospect,domain_knowledge,Large enterprise agent company
+25,Writer,https://writer.com,100-200,Enterprise AI platform with agents,Full-stack enterprise AI + agents,Head of AI,,,prospect,domain_knowledge,Enterprise AI with agentic features
+26,Glean,https://glean.com,200-500,AI-powered workplace search + agents,Enterprise AI agents for knowledge,VP Engineering,,,prospect,domain_knowledge,Enterprise AI agent search
+27,Cortex,https://cortex.io,50-100,Internal developer portal + AI,AI agents for engineering teams,CTO / Head of Eng,,,prospect,domain_knowledge,Dev-focused AI agents
+28,Observe AI,https://observe.ai,200-500,AI for contact centers,Agent-assist + autonomous agents,Head of AI,,,prospect,domain_knowledge,Contact center AI agents
+29,Cogito,https://cogitocorp.com,100-200,Real-time AI agent guidance,Live call coaching agents,VP Engineering,,,prospect,domain_knowledge,Real-time agent assistance
+30,Sierra AI,https://sierra.ai,50-100,Conversational AI agents for enterprise,Customer-facing AI agents,CTO,,,prospect,domain_knowledge,Well-funded enterprise agent company
+31,Rasa,https://rasa.com,100-200,Open-source conversational AI,Enterprise LLM agent framework,VP Engineering / Head of AI,,,prospect,domain_knowledge,Open-source agent framework
+32,Kore.ai,https://kore.ai,200-500,Enterprise AI virtual assistant platform,Enterprise agent platform,Head of AI,,,prospect,domain_knowledge,Mature enterprise agent platform
+33,Cognigy,https://cognigy.com,200-500,Conversational AI platform,Enterprise AI agents for CX,VP Engineering,,,prospect,domain_knowledge,Enterprise CX agents
+34,Yellow.ai,https://yellow.ai,200-500,Conversational AI platform,Omnichannel AI agent platform,Head of AI,,,prospect,domain_knowledge,Large agent platform
+35,Intercom (Fin AI),https://intercom.com,500+,Customer messaging + AI agent,Deployed autonomous support agent,Head of AI,,,prospect,domain_knowledge,Fin AI agent widely deployed
+36,Zendesk AI,https://zendesk.com,500+,Customer service + AI agents,Enterprise AI agent deployment,Head of AI,,,prospect,domain_knowledge,Massive enterprise agent deployment
+37,Salesforce (Agentforce),https://salesforce.com,500+,CRM + AI agents,Agentforce platform — large scale,Head of AI Platform,,,prospect,domain_knowledge,Agentforce is major agent product
+38,ServiceNow AI,https://servicenow.com,500+,Enterprise workflow + AI agents,AI agents for enterprise workflows,Head of AI,,,prospect,domain_knowledge,Large enterprise agent deployment
+39,Pega AI,https://pega.com,500+,Enterprise AI decisioning + agents,AI agent decisioning at scale,Head of AI,,,prospect,domain_knowledge,Enterprise agent decisioning
+40,IBM watsonx,https://ibm.com/watsonx,500+,Enterprise AI platform,IBM agent orchestration,Head of AI / VP Eng,,,prospect,domain_knowledge,Large enterprise AI agents
+41,Weights & Biases,https://wandb.ai,200-500,ML ops + LLM monitoring,LLM/agent experiment tracking,Head of AI / VP Eng,,,prospect,domain_knowledge,MLOps — adjacent to agent reliability
+42,Arize AI,https://arize.com,50-200,ML observability platform,LLM/agent observability,CEO / Head of AI,,,prospect,domain_knowledge,Agent observability — adjacent
+43,Traceloop,https://traceloop.com,10-50,LLM observability (OpenLLMetry),LLM/agent tracing,CTO,,,prospect,domain_knowledge,Agent tracing startup
+44,Galileo,https://rungalileo.io,50-100,LLM evaluation platform,LLM/agent evaluation,CEO / Head of AI,,,prospect,domain_knowledge,LLM eval — close to Crucible's space
+45,Brainlid / Langchain-rb community,https://github.com,10-50,OSS AI agent tooling,LangChain ecosystem builders,CTO,,,prospect,github,GitHub ecosystem companies
+46,Superagent,https://superagent.sh,10-50,Open-source AI agent framework,Agent deployment framework,CEO,,,prospect,domain_knowledge,Open-source agent framework
+47,Flowise,https://flowiseai.com,10-50,Open-source LangChain UI,Visual LangGraph/agent builder,CTO,,,prospect,domain_knowledge,Open-source LangChain/agent builder
+48,Stack AI,https://stack-ai.com,10-50,Enterprise AI workflow builder,No-code enterprise AI agent builder,CEO,,,prospect,domain_knowledge,Enterprise AI workflows
+49,Dify.ai,https://dify.ai,50-100,Open-source LLM app development,LLM agent orchestration platform,CTO / Head of AI,,,prospect,domain_knowledge,Popular open-source agent builder
+50,Mendable / SiteGPT,https://mendable.ai,10-50,AI agents for developer docs,RAG + agent for enterprise docs,CEO,,,prospect,domain_knowledge,Enterprise AI agent for docs

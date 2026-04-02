@@ -1,0 +1,26 @@
+{
+  "last_updated": "2025-01-cycle-1",
+  "sla_policy": {
+    "enterprise_response_sla_hours": 24,
+    "kill_trigger": "3 SLA misses"
+  },
+  "sla_misses": 0,
+  "open_tickets": [],
+  "closed_tickets": [],
+  "channels_monitored": {
+    "github_issues": {
+      "repo": "Ethandata/crucible-sim",
+      "status": "ACTIVE",
+      "last_checked": "cycle-1",
+      "open_count": 0
+    },
+    "email_inbox": {
+      "address": "ethanklyce11@gmail.com",
+      "status": "BLOCKED — not authenticated",
+      "last_checked": "cycle-1",
+      "open_count": "UNKNOWN"
+    }
+  },
+  "response_queue": [],
+  "notes": "First boot. Clean state. Gmail access blocked — needs credentials."
+}

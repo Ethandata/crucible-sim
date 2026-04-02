@@ -1,0 +1,12 @@
+{
+  "last_updated": "2025-01-01T00:00:00Z",
+  "sla_policy": {
+    "enterprise_response_hours": 24,
+    "standard_response_hours": 48
+  },
+  "open_tickets": [],
+  "closed_tickets": [],
+  "sla_misses": 0,
+  "sla_miss_limit": 3,
+  "notes": "Initialized on first boot. No tickets found in GitHub or email on initial scan."
+}

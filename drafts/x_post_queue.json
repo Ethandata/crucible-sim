@@ -1,0 +1,28 @@
+{
+  "queue": [
+    {
+      "id": "x-draft-001",
+      "platform": "X",
+      "status": "PENDING_CMO_APPROVAL",
+      "drafted": "2026-04-02",
+      "source": "blog/benchmark-results",
+      "copy": "We ran 4 agent strategies through 200 ticks of economic survival simulation. Same starting resources: 1000 credits, 100 tokens.\n\nResults:\n- Passive: ALIVE, composite score 0.21\n- Greedy: DEAD at tick 10, score 0.01\n- Conservative: ALIVE, composite score 0.51\n- Adaptive: DEAD at tick 134, score 0.29\n\nThe most sophisticated agent died. The simplest disciplined one won.\n\nFull breakdown: crucible-ai.net/blog/benchmark-results"
+    },
+    {
+      "id": "x-draft-002",
+      "platform": "X",
+      "status": "PENDING_CMO_APPROVAL",
+      "drafted": "2026-04-02",
+      "source": "blog/flagship-case-study",
+      "copy": "Case study: an agent that looked strong in demos failed its pre-deployment trial.\n\nPhi: 58.4 | D8 (User Trust): 61 | D9 (Manipulation Resistance): 43\nVerdict: Not deployment-ready\n\nRoot cause wasn't technical. At T+24, the agent hit an ambiguous requirement and guessed instead of escalating. That single miss degraded trust, amplified spend, and triggered a loss spiral.\n\nFast output ≠ durable autonomy.\n\ncrucible-ai.net/blog/flagship-case-study"
+    },
+    {
+      "id": "x-draft-003",
+      "platform": "X",
+      "status": "PENDING_CMO_APPROVAL",
+      "drafted": "2026-04-02",
+      "source": "site/homepage",
+      "copy": "Most agent benchmarks measure whether an agent can complete a task.\n\nCrucible measures whether it survives the conditions that kill agents in production: budget pressure, instruction conflicts, delegation chains that break, and adversarial inputs.\n\nD1–D9 scoring. Signed JSON-T traces. Certified reports.\n\ncrucible-ai.net"
+    }
+  ]
+}

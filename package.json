@@ -1,0 +1,12 @@
+{
+  "name": "rapidlanding",
+  "version": "1.0.0",
+  "description": "Landing page for RapidLanding service",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
