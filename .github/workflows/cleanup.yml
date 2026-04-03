@@ -3,24 +3,24 @@ name: Cleanup non-crucible files
 on:
   workflow_dispatch:
 
-  jobs:
-    cleanup:
-        runs-on: ubuntu-latest
-            permissions:
-                  contents: write
-                      steps:
-                            - uses: actions/checkout@v4
-                                    with:
-                                              fetch-depth: 0
-
-                                                          - name: Remove non-crucible directories and files
-                                                                  run: |
-                                                                            git rm -rf browser-profile/ 2>/dev/null || true
-                                                                                      git status
-
-                                                                                                  - name: Commit cleanup
-                                                                                                          run: |
-                                                                                                                    git config user.email "action@github.com"
-                                                                                                                              git config user.name "GitHub Action"
-                                                                                                                                        git diff --cached --quiet || git commit -m "Remove browser-profile directory (non-crucible data)"
-                                                                                                                                                  git push
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Remove browser-profile directory
+        run: |
+          git rm -rf browser-profile/
+          git status
+      
+      - name: Commit and push
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git diff --cached --quiet || git commit -m "Remove browser-profile directory"
+          git push
