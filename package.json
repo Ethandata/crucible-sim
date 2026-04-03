@@ -1,17 +1,16 @@
 {
-    "name": "crucible-api",
-    "version": "1.0.0",
-    "description": "Crucible submission API — leaderboard, trace validation, key issuance",
-    "main": "server.js",
-    "scripts": {
-          "start": "node server.js",
-          "dev": "node --watch server.js"
-    },
-    "engines": {
-          "node": ">=18.0.0"
-    },
-    "dependencies": {
-          "better-sqlite3": "^9.4.3",
-          "express": "^4.18.2"
-    }
+      "name": "crucible-api",
+      "version": "2.0.0",
+      "description": "Crucible submission API — per-developer keys, leaderboard, trace validation",
+      "main": "server.js",
+      "scripts": {
+              "start": "node server.js",
+              "dev": "node --watch server.js"
+      },
+      "engines": {
+              "node": ">=18.0.0"
+      },
+      "dependencies": {
+              "express": "^4.18.2"
+      }
 }
