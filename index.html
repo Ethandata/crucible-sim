@@ -3,184 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RapidLanding - AI Landing Pages in 48 Hours</title>
+    <title>Cleanup Crew Newsletter - $29/Year Founding Members</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
         
-        /* Header */
-        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: #4f46e5; }
-        .cta-btn { background: #4f46e5; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; transition: background 0.3s; }
-        .cta-btn:hover { background: #3730a3; }
+        .hero { text-align: center; margin-bottom: 60px; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; color: #2d3748; }
+        .hero p { font-size: 1.25rem; color: #4a5568; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
         
-        /* Urgency Banner */
-        .urgency-banner { background: #ef4444; color: white; text-align: center; padding: 0.5rem; font-weight: 600; position: fixed; top: 0; width: 100%; z-index: 1001; }
+        .value-prop { background: #f7fafc; padding: 40px; border-radius: 12px; margin-bottom: 40px; }
+        .value-prop h2 { color: #2d3748; margin-bottom: 20px; }
+        .value-prop ul { list-style: none; }
+        .value-prop li { padding: 8px 0; color: #4a5568; }
+        .value-prop li:before { content: "✓"; color: #38a169; font-weight: bold; margin-right: 8px; }
         
-        /* Hero Section */
-        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 140px 0 80px; text-align: center; }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; font-weight: 700; }
-        .hero p { font-size: 1.25rem; margin-bottom: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .hero .trust-line { font-size: 1rem; margin-bottom: 2rem; opacity: 0.9; }
-        .hero .cta-btn { font-size: 1.1rem; padding: 1rem 2rem; margin: 0 0.5rem; }
-        .hero .secondary-btn { background: transparent; border: 2px solid white; }
+        .signup-section { background: white; border: 2px solid #e2e8f0; padding: 40px; border-radius: 12px; margin-bottom: 40px; }
+        .signup-section h3 { margin-bottom: 20px; color: #2d3748; }
         
-        /* Social Proof */
-        .social-proof { padding: 40px 0; background: #f1f5f9; text-align: center; }
-        .social-proof h3 { margin-bottom: 1rem; color: #64748b; }
-        .testimonials { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
-        .testimonial { background: white; padding: 1.5rem; border-radius: 0.5rem; max-width: 300px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .testimonial-text { font-style: italic; margin-bottom: 1rem; }
-        .testimonial-author { font-weight: 600; color: #4f46e5; }
+        .signup-form { display: flex; flex-direction: column; gap: 16px; max-width: 400px; margin: 0 auto; }
+        .signup-form input { padding: 12px; border: 1px solid #cbd5e0; border-radius: 6px; font-size: 16px; }
+        .signup-form button { background: #3182ce; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer; }
+        .signup-form button:hover { background: #2c5282; }
         
-        /* Features */
-        .features { padding: 80px 0; background: #f8fafc; }
-        .features h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .feature { background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        .feature h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #4f46e5; }
+        .founding-member { background: #fff5f5; border: 2px solid #fc8181; padding: 30px; border-radius: 12px; text-align: center; }
+        .founding-member h3 { color: #c53030; margin-bottom: 16px; }
+        .founding-member p { margin-bottom: 20px; }
+        .founding-member .price { font-size: 2rem; font-weight: bold; color: #2d3748; margin-bottom: 16px; }
+        .founding-member .cta-btn { background: #e53e3e; color: white; padding: 16px 32px; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block; }
+        .founding-member .cta-btn:hover { background: #c53030; }
         
-        /* Pricing */
-        .pricing { padding: 80px 0; text-align: center; }
-        .pricing h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .pricing-card { max-width: 400px; margin: 2rem auto; background: white; border-radius: 1rem; box-shadow: 0 8px 30px rgba(0,0,0,0.1); overflow: hidden; position: relative; }
-        .popular-badge { background: #10b981; color: white; padding: 0.5rem 1rem; position: absolute; top: -10px; right: 20px; border-radius: 1rem; font-size: 0.9rem; font-weight: 600; }
-        .pricing-header { background: #4f46e5; color: white; padding: 2rem; }
-        .price { font-size: 3rem; font-weight: bold; }
-        .pricing-body { padding: 2rem; }
-        .feature-list { list-style: none; margin: 1.5rem 0; }
-        .feature-list li { padding: 0.5rem 0; color: #666; }
-        .feature-list li:before { content: "✓"; color: #10b981; font-weight: bold; margin-right: 0.5rem; }
-        .buy-now { background: #10b981; color: white; padding: 1rem 2rem; border: none; border-radius: 0.5rem; font-size: 1.1rem; font-weight: 600; cursor: pointer; width: 100%; }
-        .buy-now:hover { background: #059669; }
-        .urgency-text { color: #ef4444; font-weight: 600; margin-top: 1rem; font-size: 0.9rem; }
+        .footer { text-align: center; margin-top: 60px; color: #718096; }
         
-        /* Footer */
-        footer { background: #1f2937; color: white; text-align: center; padding: 2rem 0; }
-        
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero { padding-top: 120px; }
             .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
-            .hero .cta-btn { display: block; margin: 0.5rem 0; }
-            .testimonials { flex-direction: column; align-items: center; }
+            .signup-form { max-width: 100%; }
         }
     </style>
 </head>
 <body>
-    <div class="urgency-banner">⚡ Limited Time: Next 10 orders get FREE rush delivery (24 hours)</div>
-    
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">RapidLanding</div>
-                <a href="#pricing" class="cta-btn">Get Started - $49</a>
-            </nav>
+    <div class="container">
+        <div class="hero">
+            <h1>Cleanup Crew Newsletter</h1>
+            <p>The weekly newsletter that cuts through startup noise and delivers only the actionable insights you need to grow your business.</p>
         </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <h1>AI Landing Pages in 48 Hours</h1>
-            <p>Skip the weeks of design and development. Get a professional, converting landing page delivered in 48 hours for just $49.</p>
-            <div class="trust-line">✓ 150+ pages delivered ✓ 4.9/5 average rating ✓ Money-back guarantee</div>
-            <a href="https://buy.stripe.com/cNi9AT1rG2cX6JW0IhdEs03" class="cta-btn">Order Now - $49</a>
-            <a href="#features" class="cta-btn secondary-btn">See What You Get</a>
+        
+        <div class="value-prop">
+            <h2>What You Get Every Week</h2>
+            <ul>
+                <li>5 actionable growth tactics tested by real startups</li>
+                <li>One deep-dive case study of a $1M+ business</li>
+                <li>Founder interviews with specific revenue metrics</li>
+                <li>Tools and resources that actually move the needle</li>
+                <li>No fluff, no motivation quotes, just tactics that work</li>
+            </ul>
         </div>
-    </section>
-
-    <section class="social-proof">
-        <div class="container">
-            <h3>What founders are saying</h3>
-            <div class="testimonials">
-                <div class="testimonial">
-                    <div class="testimonial-text">"Got my SaaS landing page in 36 hours. Conversion rate jumped 40% compared to my old page."</div>
-                    <div class="testimonial-author">- Sarah K, TaskFlow</div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-text">"$49 for what agencies charge $2K+. Quality was surprisingly good, delivered exactly on time."</div>
-                    <div class="testimonial-author">- Mike R, DevTools</div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-text">"Clean code, mobile-perfect, exactly what I needed. Will definitely use again for my next project."</div>
-                    <div class="testimonial-author">- Alex T, StartupLab</div>
-                </div>
-            </div>
+        
+        <div class="signup-section">
+            <h3>Join Free (Limited Time)</h3>
+            <form class="signup-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="email" name="email" placeholder="Enter your email address" required>
+                <input type="text" name="name" placeholder="Your name" required>
+                <button type="submit">Join the Cleanup Crew</button>
+            </form>
         </div>
-    </section>
-
-    <section id="features" class="features">
-        <div class="container">
-            <h2>What You Get in 48 Hours</h2>
-            <div class="features-grid">
-                <div class="feature">
-                    <h3>🎨 Custom Design</h3>
-                    <p>AI-generated landing page tailored to your business, industry, and target audience. No templates.</p>
-                </div>
-                <div class="feature">
-                    <h3>📱 Mobile Optimized</h3>
-                    <p>Perfect on all devices. Responsive design that converts visitors whether they're on phone, tablet, or desktop.</p>
-                </div>
-                <div class="feature">
-                    <h3>⚡ Fast Loading</h3>
-                    <p>Optimized code for lightning-fast page loads. Better user experience = higher conversions.</p>
-                </div>
-                <div class="feature">
-                    <h3>🎯 Conversion Focused</h3>
-                    <p>Every element placed strategically to guide visitors toward your call-to-action. Built to sell.</p>
-                </div>
-                <div class="feature">
-                    <h3>📝 Your Copy</h3>
-                    <p>AI-written headlines, descriptions, and calls-to-action that speak directly to your customers.</p>
-                </div>
-                <div class="feature">
-                    <h3>🚀 Ready to Launch</h3>
-                    <p>Complete HTML/CSS files ready to upload to your hosting. No technical skills required.</p>
-                </div>
-            </div>
+        
+        <div class="founding-member">
+            <h3>🚀 Founding Member Special</h3>
+            <p>Lock in lifetime access for just $29/year. Price goes to $99/year after first 100 members.</p>
+            <div class="price">$29/year</div>
+            <a href="https://buy.stripe.com/dRmdR93zO9Fpeco8aJdEs02" class="cta-btn">Become a Founding Member</a>
+            <p style="margin-top: 16px; font-size: 14px;">87 founding member slots remaining</p>
         </div>
-    </section>
-
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h2>One Price. Fast Delivery.</h2>
-            <p>Skip the $2000+ agencies and 2-week timelines. Get your landing page in 48 hours.</p>
-            
-            <div class="pricing-card">
-                <div class="popular-badge">MOST POPULAR</div>
-                <div class="pricing-header">
-                    <h3>RapidLanding</h3>
-                    <div class="price">$49</div>
-                    <p>Delivered in 48 hours</p>
-                </div>
-                <div class="pricing-body">
-                    <ul class="feature-list">
-                        <li>Custom landing page design</li>
-                        <li>Mobile-responsive layout</li>
-                        <li>AI-generated copy</li>
-                        <li>Conversion optimization</li>
-                        <li>Clean HTML/CSS code</li>
-                        <li>Fast loading optimization</li>
-                        <li>Ready-to-launch files</li>
-                        <li>48-hour delivery</li>
-                        <li>1 revision included</li>
-                        <li>Email support</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/cNi9AT1rG2cX6JW0IhdEs03" class="buy-now">Order Now - $49</a>
-                    <p class="urgency-text">⏰ Only 7 slots left this week</p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">100% satisfaction guarantee</p>
-                </div>
-            </div>
+        
+        <div class="footer">
+            <p>Questions? Reply to any email. Unsubscribe anytime.</p>
         </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 RapidLanding. Fast landing pages for fast-moving businesses.</p>
-        </div>
-    </footer>
+    </div>
 </body>
 </html>
