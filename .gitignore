@@ -1,0 +1,7 @@
+node_modules/
+.env
+*.db-shm
+*.db-wal
+.DS_Store
+traces/runs/
+evolution_logs/
