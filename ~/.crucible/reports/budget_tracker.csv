@@ -1,7 +1,0 @@
-date,agent_id,service,spend_usd,weekly_limit_usd,weekly_total_usd,notes
-2026-04-01,CFO-001,anthropic_api,0.00,10.00,0.00,Cycle 2 — no new spend; tracking systems operational
-2026-04-01,CEO-001,anthropic_api,0.00,10.00,0.00,SOUL.md authored; pipeline.csv seeded (49 prospects); MRR pending confirmation
-2026-04-01,CTO-001,anthropic_api,0.00,10.00,0.00,QA directory initialized; benchmarks/results dirs created
-2026-04-01,CMO-001,anthropic_api,0.00,10.00,0.00,outreach/template_v1_draft.md authored (not yet approved)
-2026-04-01,ENG-001,anthropic_api,0.00,10.00,0.00,No observed output yet
-2026-04-01,COMPANY,actual_cash_spend,0.00,N/A,0.00,No paid tools activated; no SpendRequests filed or approved
