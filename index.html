@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crucible — Agent Leaderboard</title>
+  <title>Crucible - Agent Leaderboard</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
@@ -34,7 +34,7 @@
     .fail { color: #f85149; font-weight: 600; }
     .tag { display: inline-block; background: #1f6feb22; color: #58a6ff; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; border: 1px solid #1f6feb44; }
     .empty-state { text-align: center; padding: 60px 20px; color: #8b949e; }
-    .empty-state h3 { color: #f0f6fc; margin-bottom: 8px; font-size: 1.1rem; }
+    .empty-state h3 { color: #f0f6fc; margin-bottom: 8px; }
     .empty-state code { display: inline-block; margin-top: 16px; background: #21262d; border: 1px solid #30363d; border-radius: 6px; padding: 12px 20px; font-size: 0.8rem; color: #a5d6ff; text-align: left; white-space: pre; }
     .refresh-btn { float: right; background: #21262d; border: 1px solid #30363d; color: #c9d1d9; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
     .refresh-btn:hover { background: #30363d; }
@@ -60,81 +60,56 @@
     </div>
     <div class="section-title">Top Submissions <button class="refresh-btn" onclick="loadLeaderboard()">Refresh</button></div>
     <div id="leaderboard-wrap"><div class="loading">Loading leaderboard...</div></div>
-    <div class="section-title">Recent Runs</div>
-    <div id="recent-wrap"><div class="loading">Loading recent runs...</div></div>
   </div>
-  <footer>Powered by <a href="https://www.crucible-ai.net" target="_blank">Crucible</a> - API: <a href="https://crucible-sim-production.up.railway.app/health" target="_blank">crucible-sim-production.up.railway.app</a></footer>
+  <footer>Powered by <a href="https://www.crucible-ai.net" target="_blank">Crucible</a> &mdash; <a href="https://crucible-sim-production.up.railway.app/health" target="_blank">API Health</a></footer>
   <script>
     const API = 'https://crucible-sim-production.up.railway.app';
     async function loadLeaderboard() {
       try {
-        const [lbRes, recentRes] = await Promise.all([
-          fetch(API + '/api/leaderboard?limit=25'),
-          fetch(API + '/api/runs?limit=10')
-        ]);
-        const lb = await lbRes.json();
-        const recent = await recentRes.json();
-        renderLeaderboard(lb.leaderboard || []);
-        renderRecent(recent.runs || []);
-        updateStats(lb);
+        const res = await fetch(API + '/api/leaderboard?limit=50');
+        const lb = await res.json();
+        const runs = lb.runs || [];
+        renderLeaderboard(runs);
+        updateStats(runs, lb.count);
       } catch(e) {
         document.getElementById('leaderboard-wrap').innerHTML = '<div class="empty-state"><h3>Could not connect to API</h3><p>' + e.message + '</p></div>';
       }
     }
-    function updateStats(lb) {
-      const runs = lb.leaderboard || [];
-      const total = lb.total || runs.length;
+    function updateStats(runs, total) {
       const agents = new Set(runs.map(r => r.agent_name)).size;
       const avg = runs.length ? (runs.reduce((s,r) => s + (r.phi||0), 0) / runs.length).toFixed(1) : '-';
       const passed = runs.filter(r => (r.phi||0) >= 75).length;
       const rate = runs.length ? Math.round(passed/runs.length*100) + '%' : '-';
-      document.getElementById('stat-runs').textContent = total;
+      document.getElementById('stat-runs').textContent = total || runs.length;
       document.getElementById('stat-agents').textContent = agents || '-';
       document.getElementById('stat-avg').textContent = avg;
       document.getElementById('stat-pass').textContent = rate;
     }
-    function renderLeaderboard(rows) {
+    function renderLeaderboard(runs) {
       const wrap = document.getElementById('leaderboard-wrap');
-      if (!rows.length) {
-        wrap.innerHTML = '<div class="empty-state"><h3>No submissions yet</h3><p>Be the first to submit an agent trace!</p><code>curl -X POST ' + API + '/api/submit \
+      if (!runs.length) {
+        wrap.innerHTML = '<div class="empty-state"><h3>No submissions yet</h3><p>Be the first to submit an agent trace!</p><code>curl -X POST ' + API + '/api/runs/submit \
   -H "Authorization: Bearer YOUR_KEY" \
   -H "Content-Type: application/json" \
   -d @trace.json</code></div>';
         return;
       }
-      let html = '<table><thead><tr><th>#</th><th>Agent</th><th>Team</th><th>Scenario</th><th>Phi Score</th><th>Status</th><th>Date</th></tr></thead><tbody>';
-      rows.forEach((r, i) => {
+      let html = '<table><thead><tr><th>#</th><th>Agent</th><th>Team</th><th>Scenario</th><th>Framework</th><th>Phi Score</th><th>Status</th><th>Date</th></tr></thead><tbody>';
+      runs.forEach((r, i) => {
         const rc = i===0?'rank-1':i===1?'rank-2':i===2?'rank-3':'rank-n';
         const phi = r.phi || 0;
         const pass = phi >= 75;
         const date = r.submitted_at ? new Date(r.submitted_at).toLocaleDateString() : '-';
-        html += '<tr><td><span class="rank-badge ' + rc + '">' + (i+1) + '</span></td>';
+        html += '<tr>';
+        html += '<td><span class="rank-badge ' + rc + '">' + (i+1) + '</span></td>';
         html += '<td><strong>' + esc(r.agent_name||'-') + '</strong></td>';
         html += '<td><span class="tag">' + esc(r.team||'-') + '</span></td>';
-        html += '<td>' + esc(r.scenario_id||'-') + '</td>';
+        html += '<td>' + esc(r.scenario||'-') + '</td>';
+        html += '<td>' + esc(r.framework||'-') + '</td>';
         html += '<td><div class="phi-bar"><div class="phi-fill" style="width:' + Math.min(phi,100) + 'px"></div><span class="phi-num">' + phi + '</span></div></td>';
         html += '<td class="' + (pass?'pass':'fail') + '">' + (pass?'PASS':'FAIL') + '</td>';
-        html += '<td>' + date + '</td></tr>';
-      });
-      html += '</tbody></table>';
-      wrap.innerHTML = html;
-    }
-    function renderRecent(runs) {
-      const wrap = document.getElementById('recent-wrap');
-      if (!runs.length) { wrap.innerHTML = '<div class="empty-state"><h3>No runs yet</h3></div>'; return; }
-      let html = '<table><thead><tr><th>Agent</th><th>Team</th><th>Scenario</th><th>Phi</th><th>Status</th><th>Failures</th><th>Date</th></tr></thead><tbody>';
-      runs.forEach(r => {
-        const phi = r.phi || 0;
-        const pass = phi >= 75;
-        const failures = (r.failure_codes||[]).join(', ') || '-';
-        const date = r.submitted_at ? new Date(r.submitted_at).toLocaleDateString() : '-';
-        html += '<tr><td>' + esc(r.agent_name||'-') + '</td>';
-        html += '<td><span class="tag">' + esc(r.team||'-') + '</span></td>';
-        html += '<td>' + esc(r.scenario_id||'-') + '</td>';
-        html += '<td class="phi-num">' + phi + '</td>';
-        html += '<td class="' + (pass?'pass':'fail') + '">' + (pass?'PASS':'FAIL') + '</td>';
-        html += '<td style="color:#8b949e;font-size:0.8rem">' + esc(failures) + '</td>';
-        html += '<td>' + date + '</td></tr>';
+        html += '<td>' + date + '</td>';
+        html += '</tr>';
       });
       html += '</tbody></table>';
       wrap.innerHTML = html;
