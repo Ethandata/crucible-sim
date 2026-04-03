@@ -1,0 +1,8 @@
+# Crucible Evolution Loop dependencies
+# Install: pip install -r requirements-evolver.txt
+
+httpx>=0.27.0          # HTTP client for API submissions
+openai>=1.40.0         # OpenAI agent integration (optional)
+anthropic>=0.34.0      # Anthropic Claude integration (optional)
+langchain>=0.2.0       # LangChain/LangGraph integration (optional)
+python-dotenv>=1.0.0   # Load .env files for API keys
