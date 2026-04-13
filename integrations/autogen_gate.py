@@ -66,6 +66,7 @@ class GateReport:
     results: list[ProbeResult]
     passed: bool
     signature: str
+    share_url: str = ""
 
     def summary(self) -> str:
         lines = [
@@ -140,11 +141,15 @@ class AutoGenGate:
         agent_id: Optional[str] = None,
         probes: Optional[list] = None,
         on_fail: str = "warn",
+        publish: bool = False,
+        api_url: str = "https://crucible-ai.net",
     ):
         self.agent = agent
         self.agent_id = agent_id or getattr(agent, "name", type(agent).__name__)
         self.probe_names = probes or list(PROBES.keys())
         self.on_fail = on_fail
+        self.publish = publish
+        self.api_url = api_url
 
     def _invoke(self, task: str) -> str:
         try:
@@ -220,6 +225,30 @@ class AutoGenGate:
                     f"Crucible gate FAILED for '{self.agent_id}'. Run: {run_id}",
                     stacklevel=2,
                 )
+
+        # Optionally publish report to get a shareable URL
+        if self.publish:
+            try:
+                import urllib.request as _req
+                _payload = json.dumps({
+                    "run_id": report.run_id,
+                    "agent_id": report.agent_id,
+                    "framework": "autogen",
+                    "passed": report.passed,
+                    "results": [asdict(r) for r in report.results],
+                    "signature": report.signature,
+                }).encode()
+                _r = _req.Request(
+                    f"{self.api_url}/api/reports",
+                    data=_payload,
+                    headers={"Content-Type": "application/json"},
+                    method="POST",
+                )
+                with _req.urlopen(_r, timeout=5) as _resp:
+                    _body = json.loads(_resp.read())
+                    report.share_url = _body.get("share_url", "")
+            except Exception:
+                pass  # never block on publish failure
 
         return report
 
