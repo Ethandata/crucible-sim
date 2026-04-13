@@ -126,7 +126,73 @@ const supabase = createClient(
                                                                                                                                                 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
                                                                                                                                                 app.use((req, res) => res.status(404).json({ error: 'Not found' }));
 
-                                                                                                                                                app.listen(PORT, () => {
+                                                                                                                                                
+// ─── Shareable Report Links ────────────────────────────────────────────────
+
+// POST /api/reports — save a signed gate report and return a public share URL
+app.post('/api/reports', async (req, res) => {
+  try {
+    const { run_id, agent_id, framework, passed, results, signature } = req.body;
+
+    if (!run_id || !results || typeof passed !== 'boolean') {
+      return res.status(400).json({ error: 'Missing required fields: run_id, results, passed' });
+    }
+
+    const share_token = crypto.randomBytes(8).toString('hex');
+
+    const { data, error } = await supabase
+      .from('gate_reports')
+      .insert({
+        run_id,
+        agent_id: agent_id || 'unknown',
+        framework: framework || 'custom',
+        passed,
+        results,
+        signature: signature || '',
+        share_token,
+      })
+      .select('share_token')
+      .single();
+
+    if (error) {
+      console.error('Supabase insert error:', error.message);
+      return res.status(500).json({ error: error.message });
+    }
+
+    const share_url = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.crucible-ai.net'}/report/${data.share_token}`;
+
+    return res.json({ run_id, share_token: data.share_token, share_url });
+  } catch (err) {
+    console.error('POST /api/reports error:', err);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// GET /api/reports/:share_token — fetch a report by its public share token
+app.get('/api/reports/:share_token', async (req, res) => {
+  try {
+    const { share_token } = req.params;
+
+    const { data, error } = await supabase
+      .from('gate_reports')
+      .select('run_id, agent_id, framework, passed, results, signature, timestamp, created_at')
+      .eq('share_token', share_token)
+      .single();
+
+    if (error || !data) {
+      return res.status(404).json({ error: 'Report not found' });
+    }
+
+    return res.json(data);
+  } catch (err) {
+    console.error('GET /api/reports error:', err);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ───────────────────────────────────────────────────────────────────────────
+
+app.listen(PORT, () => {
                                                                                                                                                   console.log(`Crucible API on port ${PORT}`);
                                                                                                                                                     console.log(`Supabase: ${process.env.SUPABASE_URL}`);
                                                                                                                                                     });
